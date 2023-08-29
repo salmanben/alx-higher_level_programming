@@ -8,7 +8,7 @@ This module defines 'Square' class.
 class Square:
     """
     A class representing a square.
-    
+
     defines the 'size' instance attribute.
 
     deifines methods to get and set value to the attribute size.
