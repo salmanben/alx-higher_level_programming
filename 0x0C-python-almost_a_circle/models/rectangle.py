@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Defines 'Rectangle' class."""
+"""
+Defines 'Rectangle' class.
+"""
 from models.base import Base
 
 
@@ -77,26 +79,28 @@ class Rectangle(Base):
     def display(self):
         """Prints in stdout the Rectangle
         instance with the character '#'."""
-        print("\n" * self.__y,end="")
+        print("\n" * self.__y, end="")
         for i in range(self.__height):
             print(" " * self.__x, end="")
             print("#" * self.__width)
 
     def __str__(self):
         """Defines the instance."""
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return (
+           f"[{self.__class__.__name__}] ({self.id}) "
+           f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
+              )
 
-    
     def update(self, *args, **kwargs):
         """Assigns a key/value argument to attributes."""
         if args:
             attribute_names = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
-               setattr(self, attribute_names[i], args[i])
+                setattr(self, attribute_names[i], args[i])
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-    
+
     def to_dictionary(self):
         """"Returns the dictionary representation of a Rectangle."""
         attribute_names = ['x', 'y', 'id', 'height', 'width']
