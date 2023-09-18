@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define 'Rectangle' class."""
+"""Defines 'Rectangle' class."""
 
 Base = __import__("base").Base
 
@@ -7,7 +7,7 @@ class Rectangle(Base):
     """Represents the Rectangle class."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize instance"""
+        """Initialize the instance."""
         super().__init__(id)
         self.__width = width
         self.__height = height
@@ -76,10 +76,10 @@ class Rectangle(Base):
 
     def display(self):
         """Prints in stdout the Rectangle
-        instance with the character '#'"""
+        instance with the character '#'."""
         print("\n" * self.__y)
         for i in range(self.__height):
-            print(" " * self.__x,end="")
+            print(" " * self.__x, end="")
             print("#" * self.__width)
 
     def __str__(self):
@@ -89,11 +89,15 @@ class Rectangle(Base):
     
     def update(self, *args, **kwargs):
         """Assigns a key/value argument to attributes."""
-        if len(args) != 0:
+        if args:
             attribute_names = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
                setattr(self, attribute_names[i], args[i])
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-
+    
+    def to_dictionary(self):
+        """"Returns the dictionary representation of a Rectangle."""
+        attribute_names = ['x', 'y', 'id', 'height', 'width']
+        return {attr: getattr(self, attr) for attr in attribute_names}
