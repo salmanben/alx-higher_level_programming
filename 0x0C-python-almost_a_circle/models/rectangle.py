@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Defines 'Rectangle' class."""
-
 from models.base import Base
+
 
 class Rectangle(Base):
     """Represents the Rectangle class."""
@@ -9,10 +9,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize the instance."""
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -77,7 +77,7 @@ class Rectangle(Base):
     def display(self):
         """Prints in stdout the Rectangle
         instance with the character '#'."""
-        print("\n" * self.__y)
+        print("\n" * self.__y,end="")
         for i in range(self.__height):
             print(" " * self.__x, end="")
             print("#" * self.__width)
